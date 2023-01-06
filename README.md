@@ -27,18 +27,17 @@ docker run -d --cap-add=NET_ADMIN --dns 1.1.1.1 \
            cyberghostvpn-wireguard
 ```
 
-Other containers can connect to this image by specifying the provided network in their `docker run` command, e.g. `--net=container:cyberghostvpn-wireguard`.
+Other containers can connect to the VPN network by specifying `--net=container:cyberghostvpn-wireguard` in their `docker run` command.
 
 Environment variables:
 - `ALLOW_NETWORK` - Adds a route from the container network to the specified network once the VPN is connected. CIDR notation [192.168.1.0/24]
 - `ALLOW_PORTS` - Allow access to listed ports when VPN is connected. Delimited by comma [8080,8081,9000]
 - `ACC` - CyberGhost username - Used for login
 - `PASS` - CyberGhost password - Used for login
-- `CG_FLAGS` - Passes options to the cyberghost client. Examples:
+- `CG_FLAGS` - Passes options to the cyberghost client (see [selecting a country or single server](https://support.cyberghostvpn.com/hc/en-us/articles/360020673194--How-to-select-a-country-or-single-server-with-CyberGhost-on-Linux) for more details). Examples:
     - `CG_FLAGS='--country-code US --torrent'`
     - `CG_FLAGS='--country-code US --traffic'`
     - `CG_FLAGS='--country-code US --streaming 'Netflix US''`
-   See [GyberGhost selecting a country or single server](https://support.cyberghostvpn.com/hc/en-us/articles/360020673194--How-to-select-a-country-or-single-server-with-CyberGhost-on-Linux) for more details.
 
 Note: If the other containers have exposed ports for example a WEBUI. Forward that port in the cyberghostvpn-wireguard image, add the port to WHITELISTPORTS environment variable, and set your local LAN using NETWORK environment variable.
 
