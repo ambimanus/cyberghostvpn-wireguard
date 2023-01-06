@@ -1,5 +1,8 @@
-FROM ubuntu:18.04
-MAINTAINER Tyler McPhee
+FROM ubuntu:20.04
+MAINTAINER DEEZ
+
+ENV COUNTRY='US'
+ENV ADDITIONAL_FLAGS='--torrent'
 
 RUN apt-get update -y
 RUN apt-get install -y tzdata
@@ -17,10 +20,10 @@ RUN apt-get install -y lsb-core \
 RUN apt upgrade -y
 
 #Download and prepare Cyberghost for install
-RUN wget https://download.cyberghostvpn.com/linux/cyberghostvpn-ubuntu-18.04-1.3.4.zip -O cyberghostvpn_ubuntu.zip
+RUN wget https://download.cyberghostvpn.com/linux/cyberghostvpn-ubuntu-20.04-1.3.4.zip -O cyberghostvpn_ubuntu.zip
 RUN unzip cyberghostvpn_ubuntu.zip
-RUN mv cyberghostvpn-ubuntu-18.04-1.3.4/* .
-RUN rm -r cyberghostvpn-ubuntu-18.04-1.3.4
+RUN mv cyberghostvpn-ubuntu-20.04-1.3.4/* .
+RUN rm -r cyberghostvpn-ubuntu-20.04-1.3.4
 RUN rm cyberghostvpn_ubuntu.zip
 RUN sed -i 's/cyberghostvpn --setup/#cyberghostvpn --setup/g' install.sh
 

@@ -1,0 +1,11 @@
+.github/
+.img/
+
+.gitattributes
+.dockerignore
+.gitignore
+
+Dockerfile
+LICENSE
+
+*.md
