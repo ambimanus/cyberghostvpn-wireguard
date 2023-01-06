@@ -1,7 +1,9 @@
 FROM ubuntu:20.04
-MAINTAINER DEEZ
+LABEL maintainer="ambimanus"
+LABEL creator="Tyler McPhee"
+LABEL contributor="DEEZ"
 
-ENV COUNTRY='US'
+ENV COUNTRY='DE'
 ENV ADDITIONAL_FLAGS='--torrent'
 
 RUN apt-get update -y
