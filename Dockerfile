@@ -3,8 +3,7 @@ LABEL maintainer="ambimanus"
 LABEL creator="Tyler McPhee"
 LABEL contributor="DEEZ"
 
-ENV COUNTRY='DE'
-ENV ADDITIONAL_FLAGS='--torrent'
+ENV CG_FLAGS='--country-code US --torrent'
 
 RUN apt-get update -y
 RUN apt-get install -y tzdata
